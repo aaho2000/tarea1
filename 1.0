@@ -1,0 +1,69 @@
+import java.lang.Math;
+
+public class AreaCalculator {
+
+    
+
+    
+    public static void main(String[] args) {
+        
+        
+        
+        double areaCirculo = calcularArea("circulo", 5.0);
+        System.out.println("Área del círculo: " + areaCirculo);
+        
+        
+        double areaCuadrado = calcularArea("cuadrado", 4.0);
+        System.out.println("Área del cuadrado: " + areaCuadrado);
+        
+        
+        double areaTriangulo = calcularArea("triangulo", 6.0, 3.0);
+        System.out.println("Área del triángulo: " + areaTriangulo);
+    }
+
+    
+    public static double calcularArea(String figura, double... parametros) {
+        switch (figura.toLowerCase()) {
+            case "circulo":
+               
+            
+                double radio = parametros[0];
+                return Math.PI * radio * radio;
+            case "cuadrado":
+                
+                double lado = parametros[0];
+                return lado * lado;
+            case "triangulo":
+                
+                double base = parametros[0];
+                double altura = parametros[1];
+                return 0.5 * base * altura;
+            default:
+                throw new IllegalArgumentException("Figura no reconocida");
+        }
+    
+    }
+}
+// Eficiencia Temporal: El tiempo que el algoritmo tarda en ejecutarse, considerando cómo este tiempo se incrementa con el tamaño de la entrada de datos.
+
+
+//Eficiencia Espacial: La cantidad de memoria que el algoritmo utiliza durante su ejecución.
+
+//Análisis de la Complejidad
+
+//Complejidad Temporal (O(1)): 
+//Este algoritmo tiene una complejidad de tiempo constante, 
+//representada como O(1). Esto se debe a que, 
+//sin importar el tipo de figura o los valores de los
+//parámetros de entrada, el programa siempre realiza 
+//un número fijo de operaciones: una verificación del 
+//tipo de figura y un cálculo matemático directo. 
+//El tiempo de ejecución no aumenta con el "tamaño de la entrada" 
+//(en este caso, los valores de los parámetros).
+
+//Complejidad Espacial (O(1)): 
+//La complejidad espacial también es constante, O(1).
+//El algoritmo solo utiliza una cantidad fija de memoria para almacenar
+//las variables de los parámetros (radio, lado, base, altura) 
+//y el resultado, independientemente de los valores de entrada.
+//No se crean estructuras de datos adicionales que crezcan con el tamaño de la entrada
