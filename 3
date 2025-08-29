@@ -1,0 +1,26 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
+// ... (métodos calcularArea y bubbleSort siguen igual)
+
+public static void main(String[] args) {
+    String nombreArchivo = "areas.txt";
+    
+    // Escribir las áreas en un archivo
+    try (FileWriter writer = new FileWriter(nombreArchivo)) {
+        writer.write(calcularArea("circulo", 5.0) + "\n");
+        writer.write(calcularArea("cuadrado", 4.0) + "\n");
+        writer.write(calcularArea("triangulo", 6.0, 3.0) + "\n");
+        writer.write(calcularArea("circulo", 2.0) + "\n");
+        writer.write(calcularArea("cuadrado", 7.0) + "\n");
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    
+    System.out.println("Areas escritas en " + nombreArchivo);
+    
+    // Aquí es donde llamarías a tu método de ordenación externa
+    ordenacionExterna(nombreArchivo);
+
+    // Luego, podrías leer el archivo ordenado para verificar
+}
