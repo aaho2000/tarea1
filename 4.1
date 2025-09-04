@@ -1,0 +1,73 @@
+import java.io.*;
+import java.util.*;
+
+public class OrdenacionExterna {
+    // Tamaño del bloque
+    private static final int BLOCK_SIZE = 10000;
+
+    public static void main(String[] args) throws IOException {
+        // Archivo de datos
+        String archivo = "datos.txt";
+
+        // Ordena el archivo
+        ordenarArchivo(archivo);
+    }
+
+    // Ordena el archivo utilizando el algoritmo de ordenación externa Merge Sort
+    public static void ordenarArchivo(String archivo) throws IOException {
+        // Lee el archivo y divide en bloques
+        List<File> bloques = dividirArchivo(archivo);
+
+        // Ordena cada bloque
+        for (File bloque : bloques) {
+            ordenarBloque(bloque);
+        }
+
+        // Combina los bloques ordenados
+        combinarBloques(bloques, archivo + ".ordenado");
+    }
+
+    // Divide el archivo en bloques más pequeños
+    private static List<File> dividirArchivo(String archivo) throws IOException {
+        List<File> bloques = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
+            int bloque = 0;
+            String linea;
+            List<String> lineas = new ArrayList<>();
+            while ((linea = reader.readLine()) != null) {
+                lineas.add(linea);
+                if (lineas.size() >= BLOCK_SIZE) {
+                    // Guarda el bloque en un archivo temporal
+                    File bloqueFile = new File("bloque" + bloque + ".txt");
+                    bloques.add(bloqueFile);
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(bloqueFile))) {
+                        for (String l : lineas) {
+                            writer.write(l);
+                            writer.newLine();
+                        }
+                    }
+                    lineas.clear();
+                    bloque++;
+                }
+            }
+            // Guarda el último bloque
+            if (!lineas.isEmpty()) {
+                File bloqueFile = new File("bloque" + bloque + ".txt");
+                bloques.add(bloqueFile);
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter(bloqueFile))) {
+                    for (String l : lineas) {
+                        writer.write(l);
+                        writer.newLine();
+                    }
+                }
+            }
+        }
+        return bloques;
+    }
+
+    // Ordena un bloque utilizando el algoritmo de ordenación Merge Sort
+    private static void ordenarBloque(File bloque) throws IOException {
+        List<String> lineas = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(bloque))) {
+            String linea;
+            while ((linea = reader.readLine()) !=
