@@ -22,7 +22,7 @@ public class Main {
                 throw new IllegalArgumentException("Figura no reconocida");
         }
     }
-//.....................................................................................................................................................
+//..................................................................................................................................................................
 //Método sort
     // Método para la ordenación externa copia los métodos de la respuesta anterior
     public static void sort(String inputFile, String outputFile) throws IOException {
