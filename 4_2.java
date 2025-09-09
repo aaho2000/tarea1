@@ -106,7 +106,7 @@ public class Main {
             }
         }
         
-        // Esta línea contiene un error lógico en el código original.
+        
         // La comparación del tamaño de los archivos no es una forma confiable de determinar
         // si el proceso de ordenación ha terminado.
         return (runSize * 2) >= (new File(source1).length() + new File(source2).length()); 
