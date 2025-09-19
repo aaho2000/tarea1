@@ -1,4 +1,4 @@
-public class BusquedaLineal {
+ public class BusquedaLineal {
 
     /**
      * Implementa un algoritmo de búsqueda lineal para encontrar un valor en un arreglo.
