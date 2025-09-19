@@ -1,0 +1,42 @@
+public class BusquedaLineal {
+
+    /**
+     * Implementa un algoritmo de búsqueda lineal para encontrar un valor en un arreglo.
+     * * @param arr El arreglo de enteros donde se realizará la búsqueda.
+     * @param target El valor que se desea encontrar.
+     * @return El índice del valor si se encuentra, o -1 si no está presente.
+     */
+    public static int buscar(int[] arr, int target) {
+        // Itera a través de cada elemento del arreglo
+        for (int i = 0; i < arr.length; i++) {
+            // Compara el elemento actual con el valor que se busca
+            if (arr[i] == target) {
+                // Si el valor coincide, devuelve su índice
+                return i;
+            }
+        }
+        // Si el bucle termina sin encontrar el valor, devuelve -1
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        // Arreglo de ejemplo, desordenado
+        int[] numeros = {5, 12, 9, 3, 15, 7, 20};
+        int valorABuscar = 15;
+        
+        // Llama a la función de búsqueda
+        int resultado = buscar(numeros, valorABuscar);
+
+        // Muestra el resultado de la búsqueda
+        if (resultado != -1) {
+            System.out.println("El valor " + valorABuscar + " fue encontrado en el índice: " + resultado);
+        } else {
+            System.out.println("El valor " + valorABuscar + " no se encuentra en el arreglo.");
+        }
+        
+        // Otro ejemplo, buscando un valor que no existe
+        int valorNoEncontrado = 100;
+        int resultado2 = buscar(numeros, valorNoEncontrado);
+        System.out.println("El valor " + valorNoEncontrado + " fue encontrado en el índice: " + resultado2); // Imprimirá -1
+    }
+}
