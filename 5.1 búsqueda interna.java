@@ -1,7 +1,7 @@
-import java.util.HashMap;
+import java.util.HashMap; ////
 import java.util.Map;
 import java.util.Scanner;
-
+//
 public class Calculadora {
     private Map<String, Double> historial;
     private Scanner scanner;
