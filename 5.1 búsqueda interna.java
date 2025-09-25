@@ -1,4 +1,4 @@
-import java.util.HashMap; //
+import java.util.HashMap; // como solucionar colosiones
 import java.util.Map;
 import java.util.Scanner;
 
