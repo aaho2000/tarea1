@@ -1,4 +1,4 @@
-import java.util.HashMap; // como solucionar colosiones gg
+import java.util.HashMap; // como solucionar colosiones gg método secuencia y binario
 import java.util.Map;
 import java.util.Scanner;
 
