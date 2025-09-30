@@ -22,3 +22,4 @@ public int busquedaBinaria(int[] arr, int objetivo) {
     }
     return -1; // Elemento no encontrado
 }
+/// algoritmos para solucionar colisiones busquedda secuencial y busqueda binaria 
