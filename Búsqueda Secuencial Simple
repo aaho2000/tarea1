@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class CalculadoraBusquedaSimple {
 
-    /**
-     * Implementa el algoritmo de Búsqueda Secuencial (Lineal) simple.
-     * Busca la 'operacion' objetivo dentro de la 'catalogo' de datos.
-     * @param catalogo La lista de operaciones válidas (simula la fuente externa).
-     * @param operacion La cadena a buscar.
-     * @return true si la operación es encontrada, false en caso contrario.
-     */
+    //
+     // Implementa el algoritmo de Búsqueda Secuencial (Lineal) simple.
+     // Busca la 'operacion' objetivo dentro de la 'catalogo' de datos.
+    // param catalogo La lista de operaciones válidas (simula la fuente externa).
+   //  param operacion La cadena a buscar.
+      //return true si la operación es encontrada, false en caso contrario.
+     
     public static boolean busquedaSecuencialOperacion(ArrayList<String> catalogo, String operacion) {
         System.out.println(" Buscando la operación '" + operacion + "' en el catálogo...");
         
