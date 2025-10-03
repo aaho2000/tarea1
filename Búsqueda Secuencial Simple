@@ -1,0 +1,94 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class CalculadoraBusquedaSimple {
+
+    /**
+     * Implementa el algoritmo de Búsqueda Secuencial (Lineal) simple.
+     * Busca la 'operacion' objetivo dentro de la 'catalogo' de datos.
+     * @param catalogo La lista de operaciones válidas (simula la fuente externa).
+     * @param operacion La cadena a buscar.
+     * @return true si la operación es encontrada, false en caso contrario.
+     */
+    public static boolean busquedaSecuencialOperacion(ArrayList<String> catalogo, String operacion) {
+        System.out.println(" Buscando la operación '" + operacion + "' en el catálogo...");
+        
+        // La iteración secuencial: revisa cada elemento uno por uno
+        for (String item : catalogo) {
+            // Comparación: el paso clave del algoritmo
+            if (item.equalsIgnoreCase(operacion)) {
+                return true; // Éxito: elemento encontrado
+            }
+        }
+        return false; // Fracaso: se recorrió toda la lista y no se encontró
+    }
+
+    // -------------------------------------------------------------------------
+    
+    public static void main(String[] args) {
+        // Catálogo de operaciones válidas (simula la lista de datos externa)
+        ArrayList<String> operacionesValidas = new ArrayList<>(Arrays.asList("sumar", "restar", "multiplicar", "dividir"));
+
+        Scanner scanner = new Scanner(System.in);
+        double num1, num2;
+        String operacion;
+        double resultado = 0;
+
+        System.out.println(" Calculadora de Búsqueda Simple ");
+        System.out.println("Operaciones disponibles: " + operacionesValidas);
+
+        // 1. Lectura de entradas
+        try {
+            System.out.print("Ingrese el primer número: ");
+            num1 = scanner.nextDouble();
+            System.out.print("Ingrese el segundo número: ");
+            num2 = scanner.nextDouble();
+            scanner.nextLine(); // Consumir la línea pendiente
+            System.out.print("Ingrese la operación (ej: sumar, restar): ");
+            operacion = scanner.nextLine().toLowerCase();
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("Error: Ingrese solo números válidos.");
+            scanner.close();
+            return;
+        }
+
+        // 2. Aplicamos la Búsqueda Secuencial para validar la operación
+        boolean esValida = busquedaSecuencialOperacion(operacionesValidas, operacion);
+
+        System.out.println("-------------------------------------");
+
+        if (esValida) {
+            System.out.println("-> Operación válida. Ejecutando...");
+            
+            // 3. Realizar la operación si es válida
+            switch (operacion) {
+                case "sumar":
+                    resultado = num1 + num2;
+                    break;
+                case "restar":
+                    resultado = num1 - num2;
+                    break;
+                case "multiplicar":
+                    resultado = num1 * num2;
+                    break;
+                case "dividir":
+                    if (num2 != 0) {
+                        resultado = num1 / num2;
+                    } else {
+                        System.out.println("Error: División por cero no permitida.");
+                        scanner.close();
+                        return;
+                    }
+                    break;
+            }
+            // 4. Mostrar el resultado
+            System.out.printf("Resultado de %.2f %s %.2f: %.2f%n", num1, operacion, num2, resultado);
+        } else {
+            // 5. La búsqueda falló
+            System.out.println("Error: La operación '" + operacion + "' no es válida en el catálogo.");
+        }
+
+        scanner.close();
+    }
+}
