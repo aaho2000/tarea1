@@ -4,7 +4,7 @@ public int busquedaSecuencial(int[] arr, int objetivo) {
             return i; // Elemento encontrado
         }
     }
-    return -1; // Elemento no encontrado
+    return -1; // Elemento no encontrado ll
 }
 ///////////////
 public int busquedaBinaria(int[] arr, int objetivo) {
