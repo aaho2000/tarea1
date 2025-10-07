@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class CalculadoraBusquedaSimple {
 
-    //
+    
      // Búsqueda Secuencial
      // Busca la 'operacion' objetivo dentro del 'catalogo' de datos.
     //  La lista de operaciones válidas (simula la fuente externa).
@@ -14,7 +14,7 @@ public class CalculadoraBusquedaSimple {
     public static boolean busquedaSecuencialOperacion(ArrayList<String> catalogo, String operacion) {
         System.out.println(" Buscando la operación '" + operacion + "' en el catálogo...");
         
-        // La iteración secuencial: revisa cada elemento uno por uno
+        // La iteración secuencial:revisa cada elemento uno por uno
         for (String item : catalogo) {
             // Comparación: el paso clave del algoritmo
             if (item.equalsIgnoreCase(operacion)) {
